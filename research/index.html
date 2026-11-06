@@ -1,0 +1,146 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> research | DrXs Lab </title> <meta name="author" content="Wenqiang Xu"> <meta name="description" content="Our work centers on the safety of robot interaction — how robots can act in physical contact with people and objects without putting them at risk. We pursue it along four connected directions, from the mechanisms of human motion, through perception and control at the moment of contact, to the policies and the hardware that make safe interaction possible in the first place. "> <meta name="keywords" content="DrXs Lab, Fudan University, Trustworthy Embodied AI, robot safety, human-robot interaction, tactile sensing, force control, dexterous manipulation, musculoskeletal modeling, Wenqiang Xu, 徐文强, 复旦大学, 具身智能"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 1080px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="/assets/img/lab_logo.svg?v=b6f8505afe002f0f26f6126f10c851a5"> <link rel="stylesheet" href="/assets/css/main.css?v=3116ba77db9ee1581d05bb3e86fbf7f1"> <link rel="canonical" href="https://drxslab.github.io/research/"> <script src="/assets/js/theme.js?v=5286c3e4c334d0ecb8fc0c40ff4fa7ec"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav sticky-bottom-footer"> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> DrXs Lab </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">home </a> </li> <li class="nav-item active"> <a class="nav-link" href="/research/">research <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/team/">team </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/news/">news </a> </li> <li class="nav-item "> <a class="nav-link" href="/join/">join us </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">research</h1> <p class="post-description">Our work centers on the safety of robot interaction — how robots can act in physical contact with people and objects without putting them at risk. We pursue it along four connected directions, from the mechanisms of human motion, through perception and control at the moment of contact, to the policies and the hardware that make safe interaction possible in the first place. </p> </header> <article> <section class="drxs-research-block" id="human-motion"> <h2 class="drxs-research-title"> Human Motion Mechanisms <span class="drxs-research-title-zh">人体运动机理</span> </h2> <ul class="drxs-tags"> <li class="drxs-tag">musculoskeletal modeling</li> <li class="drxs-tag">biomechanics</li> <li class="drxs-tag">motion capture</li> </ul> <div class="drxs-research-body"> <p>Robots that work in contact with people need a model of what a human body can and cannot tolerate. Skin-level kinematics are not enough: the same external motion can correspond to very different internal loads depending on posture, muscle activation, and joint state.</p> <p>We build biomechanically grounded models of human motion — musculoskeletal structure, not just skeletal keypoints — so that an interaction can be evaluated against what is actually happening inside the body. The open question we care about is how to recover these internal quantities from the sparse, noisy signals available outside a laboratory.</p> </div> <h3 class="drxs-subheading">Representative work</h3> <div class="drxs-empty"> <p>Papers in this direction will be listed here as they appear.</p> </div> </section> <section class="drxs-research-block" id="omni-modal-perception"> <h2 class="drxs-research-title"> Omni-modal Perception &amp; Force Control <span class="drxs-research-title-zh">全模态感知与高频力控</span> </h2> <ul class="drxs-tags"> <li class="drxs-tag">tactile sensing</li> <li class="drxs-tag">force control</li> <li class="drxs-tag">sensor fusion</li> <li class="drxs-tag">high-frequency control</li> </ul> <div class="drxs-research-body"> <p>Contact is where a robot’s senses disagree most. Vision is occluded exactly when touch becomes informative; force readings are fast but local; proprioception drifts. Each modality is partial, and they run at wildly different rates.</p> <p>We work on fusing vision, touch, force, and proprioception into a single coherent estimate of contact state, and on closing control loops over it fast enough to matter — contact events unfold in milliseconds, which puts hard real-time requirements on both the perception and the control stack.</p> </div> <h3 class="drxs-subheading">Representative work</h3> <div class="drxs-empty"> <p>Papers in this direction will be listed here as they appear.</p> </div> </section> <section class="drxs-research-block" id="safe-interaction-policy"> <h2 class="drxs-research-title"> Safe Interaction Policy <span class="drxs-research-title-zh">安全交互策略</span> </h2> <ul class="drxs-tags"> <li class="drxs-tag">manipulation</li> <li class="drxs-tag">locomotion</li> <li class="drxs-tag">navigation</li> <li class="drxs-tag">policy learning</li> </ul> <div class="drxs-research-body"> <p>A policy that is safe in expectation is not the same as a policy that is safe. Rare contact events dominate the risk, and they are precisely the events least represented in training data.</p> <p>We study how to learn and verify interaction policies — across navigation, locomotion, and manipulation — whose safety properties hold under physical contact rather than only in free space, and that degrade gracefully when the world falls outside what they were trained on.</p> </div> <h3 class="drxs-subheading">Representative work</h3> <div class="drxs-empty"> <p>Papers in this direction will be listed here as they appear.</p> </div> </section> <section class="drxs-research-block" id="embodiments-and-sensors"> <h2 class="drxs-research-title"> Novel Embodiments &amp; Sensors <span class="drxs-research-title-zh">新型本体与传感器</span> </h2> <ul class="drxs-tags"> <li class="drxs-tag">sensor design</li> <li class="drxs-tag">compliant mechanisms</li> <li class="drxs-tag">hardware</li> <li class="drxs-tag">dexterous hands</li> </ul> <div class="drxs-research-body"> <p>Some safety properties are cheaper to build into a body than to compute at runtime. Compliance, intrinsic force sensing, and a well-chosen morphology can rule out entire failure modes before any controller runs.</p> <p>We design novel embodiments and sensors so that safe physical interaction becomes a property of the hardware, reducing how much the software has to guarantee on its own. This closes the loop with the other three directions: better bodies make perception and control tractable.</p> </div> <h3 class="drxs-subheading">Representative work</h3> <div class="drxs-empty"> <p>Papers in this direction will be listed here as they appear.</p> </div> </section> </article> </div> </div> <footer class="sticky-bottom mt-5" role="contentinfo"> <div class="container"> <section class="drxs-recruit"> <p class="drxs-recruit-text"> We are recruiting postdocs, PhD and master's students, research assistants, and visiting scholars. <span class="drxs-recruit-text-zh">我们正在招收博士后、博士生、研究助理与访问学者</span> </p> <a class="drxs-btn drxs-btn-primary" href="/join/"> See open positions <span class="drxs-btn-zh">查看招聘详情</span> </a> </section> <div class="drxs-footer-cols"> <div> <h2 class="drxs-footer-col-title">DrXs Lab</h2> <p class="drxs-footer-lab-name"> 交叉学科智能系统设计与实现实验室 <span class="drxs-footer-lab-name-en">Design and Realization of Interdisciplinary Intelligent Systems</span> </p> <p class="drxs-footer-address"> Institute of Trustworthy Embodied AI, Fudan University<br> 上海市 复旦大学 可信具身智能研究院 </p> </div> <div> <h2 class="drxs-footer-col-title">Quick links</h2> <ul class="drxs-footer-links"> <li><a href="/">Home</a></li> <li><a href="/research/">Research</a></li> <li><a href="/team/">Team</a></li> <li><a href="/publications/">Publications</a></li> <li><a href="/news/">News</a></li> <li><a href="/join/">Join Us</a></li> </ul> </div> <div> <h2 class="drxs-footer-col-title">Contact</h2> <p class="drxs-footer-contact"> <a href="mailto:wenqiangxu@fudan.edu.cn">wenqiangxu@fudan.edu.cn</a><br> <a href="https://teai.fudan.edu.cn" rel="external nofollow noopener" target="_blank">可信具身智能研究院</a> </p> <div class="drxs-icon-row"> <a href="mailto:wenqiangxu@fudan.edu.cn" title="Email"><i class="fa-solid fa-envelope"></i></a> <a href="https://scholar.google.com/citations?user=PdzO-4YAAAAJ" title="Scholar userid" rel="external nofollow noopener" target="_blank"><i class="ai ai-google-scholar"></i></a> <a href="https://github.com/drxslab" title="Github username" rel="external nofollow noopener" target="_blank"><i class="fa-brands fa-github"></i></a> <a href="/feed.xml" title="Rss icon"><i class="fa-solid fa-square-rss"></i></a> </div> </div> </div> <div class="drxs-footer-bottom"> © 2026 DrXs Lab · Fudan University. Last updated November 06, 2026. </div> </div> </footer><script>
+  (function () {
+    var navbar = document.getElementById('navbar');
+    if (!navbar) return;
+    var SHRINK_AT = 60; // px of scroll before the navbar condenses
+    var ticking = false;
+    function sync() {
+      navbar.classList.toggle('drxs-navbar-scrolled', window.scrollY > SHRINK_AT);
+      ticking = false;
+    }
+    window.addEventListener(
+      'scroll',
+      function () {
+        if (!ticking) {
+          ticking = true;
+          window.requestAnimationFrame(sync);
+        }
+      },
+      { passive: true }
+    );
+    sync();
+  })();
+</script> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-home",
+    title: "home",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-research",
+          title: "research",
+          description: "Our work centers on the safety of robot interaction — how robots can act in physical contact with people and objects without putting them at risk. We pursue it along four connected directions, from the mechanisms of human motion, through perception and control at the moment of contact, to the policies and the hardware that make safe interaction possible in the first place.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/research/";
+          },
+        },{id: "nav-team",
+          title: "team",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/team/";
+          },
+        },{id: "nav-publications",
+          title: "publications",
+          description: "Publications from the lab, newest first.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-news",
+          title: "news",
+          description: "新闻动态 · What&#39;s happening in the lab",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/news/";
+          },
+        },{id: "nav-join-us",
+          title: "join us",
+          description: "加入我们 · Open positions at DrXs Lab",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/join/";
+          },
+        },{id: "news-drxs-lab-is-founded-at-the-institute-of-trustworthy-embodied-ai-fudan-university-we-are-recruiting-postdocs-phd-and-master-s-students-research-assistants-and-visiting-scholars-working-on-safe-robot-interaction",
+          title: 'DrXs Lab is founded at the Institute of Trustworthy Embodied AI, Fudan University....',
+          description: "",
+          section: "News",},{id: "news-we-are-recruiting-our-founding-members",
+          title: 'We are recruiting our founding members',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/2026-10-15-recruiting/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%77%65%6E%71%69%61%6E%67%78%75@%66%75%64%61%6E.%65%64%75.%63%6E", "_blank");
+        },
+      },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=PdzO-4YAAAAJ", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/drxslab", "_blank");
+        },
+      },{
+        id: 'social-rss',
+        title: 'RSS Feed',
+        section: 'Socials',
+        handler: () => {
+          window.open("/feed.xml", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
