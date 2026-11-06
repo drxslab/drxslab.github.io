@@ -14,6 +14,9 @@ pagination:
   trail:
     before: 1 # The number of links before the current page
     after: 3 # The number of links after the current page
+# al-folio demo page, kept for reference but not rendered.
+# Flip to `published: true` (or delete this key) to bring it back.
+published: false
 ---
 
 <div class="post">

@@ -4,6 +4,9 @@ title: plugins
 permalink: /plugins/
 nav: false
 description: featured and bundled plugin ecosystem catalog for al-folio v1.x
+# al-folio demo page, kept for reference but not rendered.
+# Flip to `published: true` (or delete this key) to bring it back.
+published: false
 ---
 
 `al-folio` `v1.x` is a starter with plugin-owned runtime features.

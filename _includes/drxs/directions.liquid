@@ -1,0 +1,32 @@
+{%- comment -%}
+  Research direction overview cards for the home page.
+
+  Reads _data/research.yml — the same file that drives the full sections on
+  /research/ — so a direction is described in exactly one place. Each card links
+  to its anchor on the Research page.
+{%- endcomment -%}
+
+<section class="drxs-section" id="research-overview">
+  <div class="drxs-section-header">
+    <h2 class="drxs-section-title">
+      Research Directions
+      <span class="drxs-section-title-zh">研究方向</span>
+    </h2>
+    <p class="drxs-section-lead">Four directions, one question: how can robots act in physical contact with the world without putting it at risk?</p>
+  </div>
+
+  <div class="drxs-directions">
+    {%- for d in site.data.research %}
+      <a class="drxs-direction-card" href="{{ '/research/' | relative_url }}#{{ d.id }}">
+        {%- if d.icon %}
+          <div class="drxs-direction-icon"><i class="{{ d.icon }}" aria-hidden="true"></i></div>
+        {%- endif %}
+        <h3>
+          {{ d.name_en }}
+          <span class="drxs-direction-name-zh">{{ d.name_zh }}</span>
+        </h3>
+        <p>{{ d.tagline }}</p>
+      </a>
+    {%- endfor %}
+  </div>
+</section>

@@ -1,0 +1,23 @@
+# Featured research shown on the home page (aim for 4-6 entries).
+#
+# Empty for now — the lab is newly founded, and the PI's pre-lab publications
+# deliberately live on https://wenqiangx.github.io rather than here. While this
+# list is empty the home page renders a short placeholder in its place.
+#
+# Each entry:
+#   title     paper or project title
+#   venue     e.g. "CVPR 2026", "IEEE T-RO", "Open source"
+#   authors   author string; wrap lab members in ** ** to bold them
+#   image     thumbnail in assets/img/publication_preview/ (optional)
+#   links     any of: pdf, code, project, video, arxiv
+#
+# Example (copy, uncomment, and edit):
+#
+# - title: Safe Dexterous Manipulation under Visual Occlusion
+#   venue: CVPR 2026
+#   authors: Student Name, **Wenqiang Xu**, Collaborator Name
+#   image: example.jpg
+#   links:
+#     pdf: https://arxiv.org/pdf/0000.00000
+#     code: https://github.com/drxslab/example
+#     project: https://drxslab.github.io/example/

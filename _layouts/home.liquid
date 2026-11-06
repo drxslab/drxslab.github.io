@@ -1,0 +1,42 @@
+---
+layout: default
+---
+{%- comment -%}
+  Home page layout for DrXs Lab.
+
+  A new layout rather than the gem's `about` layout: that one is built for a
+  single-column personal homepage (floating profile photo, name as the page
+  title), whereas this is a lab landing page with a split hero and several
+  full-width sections. It is additive — no gem file is shadowed.
+
+  Section order follows the site plan: hero → vision → directions → featured →
+  collaborators. The recruiting banner is appended site-wide by
+  _includes/footer.liquid, so it is deliberately absent here.
+{%- endcomment -%}
+
+<div class="post">
+  {% include drxs/hero.liquid %}
+  {%- comment -%}
+    The research-vision section is intentionally not rendered. Its include and
+    _data/vision.yml are kept, so adding the line back restores it.
+  {%- endcomment -%}
+  {% include drxs/directions.liquid %}
+  {% include drxs/featured.liquid %}
+
+  {%- comment -%} News, so visitors see signs of life without a second click. {%- endcomment -%}
+  {%- if site.news.size > 0 %}
+    <section class="drxs-section" id="news">
+      <div class="drxs-section-header">
+        <h2 class="drxs-section-title">
+          <a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a>
+          <span class="drxs-section-title-zh">新闻动态</span>
+        </h2>
+      </div>
+      {% include news.liquid limit=true %}
+    </section>
+  {%- endif %}
+
+  {% include drxs/collaborators.liquid %}
+
+  {{ content }}
+</div>

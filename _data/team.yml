@@ -1,0 +1,79 @@
+# Team members.
+#
+# `pi`      the principal investigator, rendered as a dedicated block.
+# `groups`  current members, in fixed display order. Leave a group's `members`
+#           list empty and the page shows a "recruiting" placeholder for it.
+# `alumni`  graduated members, sorted newest-year-first by the template.
+#
+# Member fields (all optional except name_en):
+#   name_en, name_zh, role, year (e.g. "entered 2026"), interests (list),
+#   avatar, email, homepage, scholar, github
+#
+# `avatar` is a path relative to assets/img/ — use `team/alice.jpg` for member
+# photos (drop the files in assets/img/team/). Omit it and the card shows a
+# circle with the member's initial instead.
+
+pi:
+  name_en: Wenqiang Xu
+  name_zh: 徐文强
+  title_en: Assistant Professor
+  title_zh: 青年研究员
+  affiliation_en: Institute of Trustworthy Embodied AI, Fudan University
+  affiliation_zh: 复旦大学 可信具身智能研究院
+  avatar: prof_pic.jpg
+  email: wenqiangxu@fudan.edu.cn
+  homepage: https://wenqiangx.github.io
+  scholar: https://scholar.google.com/citations?user=PdzO-4YAAAAJ
+  github: https://github.com/drxslab
+  bio:
+    - >
+      I am an Assistant Professor at the
+      [Institute of Trustworthy Embodied AI](https://teai.fudan.edu.cn), Fudan
+      University, where I lead the DrXs Lab.
+    - >
+      Before joining Fudan, I was a Research Fellow at NUS, advised by
+      [Prof. Shao Lin](https://linsats.github.io/), and an Assistant Research
+      Fellow at Shanghai Jiao Tong University. My PhD and MS were completed at
+      the School of SEIEE, Shanghai Jiao Tong University, under the supervision
+      of Prof. Cewu Lu. Prior to this, I earned my bachelor's degree from the
+      School of the Gifted Young at the University of Science and Technology of
+      China.
+    - >
+      My research interest centers on the **safety of robot interaction**: how
+      robots can work in physical contact with people and objects without
+      putting them at risk. I approach it along four directions — human motion
+      mechanisms, omni-modal perception and high-frequency force control, safe
+      interaction policy, and the design of novel embodiments and sensors that
+      make safe physical interaction a property of the hardware itself.
+  honors:
+    - Forbes 30 Under 30 China, 2025
+
+# Display order is fixed and matches the order below.
+groups:
+  - id: postdocs
+    title_en: Postdoctoral Researchers
+    title_zh: 博士后
+    members: []
+
+  - id: phd
+    title_en: PhD Students
+    title_zh: 博士研究生
+    members: []
+
+  - id: masters
+    title_en: Master's Students
+    title_zh: 硕士研究生
+    members: []
+
+  - id: undergrads
+    title_en: Undergraduate Students
+    title_zh: 本科生
+    members: []
+
+  - id: visitors
+    title_en: Visiting Scholars & Interns
+    title_zh: 访问学者与实习生
+    members: []
+
+# Graduated members. Each: name_en, name_zh, degree, year, destination
+alumni: []

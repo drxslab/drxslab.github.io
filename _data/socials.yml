@@ -1,14 +1,8 @@
-# this file contains the social media links and usernames of the author
-# the socials will be displayed in the order they are defined here
-# for more information, please refer to the documentation of jekyll-socials plugin: https://github.com/george-gca/jekyll-socials
-cv_pdf: /assets/pdf/example_pdf.pdf # path to your CV PDF file
-email: you@example.com # your email address
-inspirehep_id: 1010907 # Inspire HEP author ID
-rss_icon: true # comment this line to hide the RSS icon
-scholar_userid: qc6CJjYAAAAJ # your Google Scholar ID
-# wechat_qr: # filename of your wechat qr-code saved as an image (e.g., wechat-qr.png if saved to assets/img/wechat-qr.png)
-# whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
-custom_social: # can be any name here other than the ones already defined in the jekyll-socials plugin
-  logo: https://www.alberteinstein.com/wp-content/uploads/2024/03/cropped-favicon-192x192.png # can be png, svg, jpg
-  title: Custom Social
-  url: https://www.alberteinstein.com/
+# Social media links and academic profiles for the lab.
+# Rendered by the `{% social_links %}` tag (jekyll-socials) in the footer and
+# on the PI card. Entries appear in the order they are defined here.
+# Docs: https://github.com/george-gca/jekyll-socials
+email: wenqiangxu@fudan.edu.cn
+scholar_userid: PdzO-4YAAAAJ # Google Scholar profile of the PI
+github_username: drxslab
+rss_icon: false # the lab has no blog feed yet; flip to true once posts go live

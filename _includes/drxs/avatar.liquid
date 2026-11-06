@@ -1,0 +1,18 @@
+{%- comment -%}
+  Member avatar. Falls back to a circle with the member's initial when no photo
+  file is set, so the team grid stays even before headshots are collected.
+
+  `avatar` is a path relative to assets/img/ — e.g. `team/alice.jpg` for a
+  member photo, or `prof_pic.jpg` for the PI.
+
+  Params:
+    member  a member hash from _data/team.yml
+{%- endcomment -%}
+
+{%- if include.member.avatar -%}
+  {%- assign avatar_src = include.member.avatar | prepend: '/assets/img/' -%}
+  <img class="drxs-avatar" src="{{ avatar_src | relative_url }}" alt="{{ include.member.name_en }}" loading="lazy">
+{%- else -%}
+  {%- assign initial = include.member.name_en | truncate: 1, '' | upcase -%}
+  <div class="drxs-avatar" aria-hidden="true">{{ initial }}</div>
+{%- endif -%}

@@ -9,4 +9,7 @@ cv_format: rendercv # options: rendercv, jsonresume
 description: This is a description of the page. You can modify it in '_pages/cv.md'. You can also change or remove the top pdf download button.
 toc:
   sidebar: left
+# al-folio demo page, kept for reference but not rendered.
+# Flip to `published: true` (or delete this key) to bring it back.
+published: false
 ---

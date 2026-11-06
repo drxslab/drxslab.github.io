@@ -1,0 +1,55 @@
+{%- comment -%}
+  One member card in the Team page grid.
+
+  Params:
+    member  a member hash from _data/team.yml
+{%- endcomment -%}
+{%- assign m = include.member -%}
+
+<div class="drxs-member-card">
+  {% include drxs/avatar.liquid member=m %}
+
+  <p class="drxs-member-name">
+    {{ m.name_en }}
+    {%- if m.name_zh %}
+      <span class="drxs-member-name-zh">{{ m.name_zh }}</span>
+    {%- endif %}
+  </p>
+
+  {%- if m.role or m.year %}
+    <p class="drxs-member-role">
+      {{ m.role -}}
+      {%- if m.role and m.year %} · {% endif -%}
+      {{- m.year }}
+    </p>
+  {%- endif %}
+
+  {%- if m.interests %}
+    <p class="drxs-member-interests">{{ m.interests | join: ' · ' }}</p>
+  {%- endif %}
+
+  {%- if m.email or m.homepage or m.scholar or m.github %}
+    <div class="drxs-icon-row" style="justify-content: center">
+      {%- if m.email %}
+        <a href="mailto:{{ m.email }}" title="Email" aria-label="Email {{ m.name_en }}">
+          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+        </a>
+      {%- endif %}
+      {%- if m.homepage %}
+        <a href="{{ m.homepage }}" title="Homepage" aria-label="{{ m.name_en }}'s homepage">
+          <i class="fa-solid fa-link" aria-hidden="true"></i>
+        </a>
+      {%- endif %}
+      {%- if m.scholar %}
+        <a href="{{ m.scholar }}" title="Google Scholar" aria-label="{{ m.name_en }} on Google Scholar">
+          <i class="ai ai-google-scholar" aria-hidden="true"></i>
+        </a>
+      {%- endif %}
+      {%- if m.github %}
+        <a href="{{ m.github }}" title="GitHub" aria-label="{{ m.name_en }} on GitHub">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+        </a>
+      {%- endif %}
+    </div>
+  {%- endif %}
+</div>

@@ -25,4 +25,7 @@ profiles:
       <p>555 your office number</p>
       <p>123 your address street</p>
       <p>Your City, State 12345</p>
+# al-folio demo page, kept for reference but not rendered.
+# Flip to `published: true` (or delete this key) to bring it back.
+published: false
 ---

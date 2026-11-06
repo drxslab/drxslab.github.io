@@ -1,0 +1,26 @@
+{%- comment -%}
+  Inline copy of assets/img/lab_logo.svg.
+
+  Inlined rather than referenced via <img> so `currentColor` resolves against
+  the page's theme and the mark follows light/dark mode. The file under
+  assets/img/ is kept as the favicon source — update both together.
+{%- endcomment -%}
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="DrXs Lab">
+  <title>DrXs Lab</title>
+  <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- force field radiating from the contact point -->
+    <circle cx="60" cy="62" r="33" opacity="0.14" />
+    <circle cx="60" cy="62" r="22" opacity="0.28" />
+    <!-- upper limb: reaching down from the left -->
+    <path d="M14 20 L34 44 L52 58" opacity="0.9" />
+    <circle cx="34" cy="44" r="4.5" opacity="0.9" />
+    <!-- lower limb: reaching up from the right -->
+    <path d="M106 20 L86 44 L68 58" opacity="0.9" />
+    <circle cx="86" cy="44" r="4.5" opacity="0.9" />
+    <!-- the surface being touched -->
+    <path d="M26 96 L94 96" opacity="0.45" />
+  </g>
+  <!-- the contact point itself -->
+  <circle cx="60" cy="62" r="7" fill="currentColor" />
+</svg>

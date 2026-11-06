@@ -1,0 +1,63 @@
+{%- comment -%}
+  Home page hero. Left: lab name, affiliation, slogan, CTAs. Right: logo or a
+  representative figure. 1:1 on desktop, stacked on mobile (see _sass/_drxs.scss).
+  Content comes from _data/lab.yml.
+{%- endcomment -%}
+{%- assign lab = site.data.lab -%}
+
+<section class="drxs-hero">
+  <div class="drxs-hero-text">
+    <h1 class="drxs-hero-name-zh">{{ lab.name_zh }}</h1>
+    <p class="drxs-hero-name-en">
+      {{ lab.name_en }}
+      <span class="drxs-hero-short-name">({{ lab.short_name }})</span>
+    </p>
+
+    <p class="drxs-hero-affiliation">
+      <a href="{{ lab.institute_url }}">{{ lab.institute_en }}</a>, {{ lab.university_en -}}
+      <br>
+      {{ lab.university_zh }} · {{ lab.institute_zh }}
+    </p>
+
+    <p class="drxs-hero-slogan">
+      {{ lab.slogan_en }}
+      <span class="drxs-hero-slogan-zh">{{ lab.slogan_zh }}</span>
+    </p>
+
+    <div class="drxs-hero-intro">{{ lab.hero_intro | markdownify }}</div>
+
+    <div class="drxs-cta">
+      <a class="drxs-btn drxs-btn-primary" href="{{ lab.cta.primary.url | relative_url }}">
+        {{ lab.cta.primary.label_en }}
+        <span class="drxs-btn-zh">{{ lab.cta.primary.label_zh }}</span>
+      </a>
+      <a class="drxs-btn drxs-btn-secondary" href="{{ lab.cta.secondary.url | relative_url }}">
+        {{ lab.cta.secondary.label_en }}
+        <span class="drxs-btn-zh">{{ lab.cta.secondary.label_zh }}</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="drxs-hero-media">
+    {%- comment -%}
+      SVG logos are inlined so `currentColor` tracks the active theme; raster
+      images go through the gem's figure include for responsive/lazy variants.
+    {%- endcomment -%}
+    {%- if lab.hero_image == 'lab_logo.svg' -%}
+      {% include drxs/lab_logo.liquid %}
+    {%- else -%}
+      {%- comment -%}
+        Path must be relative to the site root: figure.liquid builds the
+        imagemagick webp srcset from this exact string.
+      {%- endcomment -%}
+      {%- assign hero_path = lab.hero_image | prepend: 'assets/img/' -%}
+      {%
+        include figure.liquid
+        loading="eager"
+        path=hero_path
+        class="img-fluid"
+        alt=lab.hero_image_alt
+      %}
+    {%- endif -%}
+  </div>
+</section>

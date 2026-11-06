@@ -1,0 +1,18 @@
+{%- comment -%}
+  Placeholder for a section that has no content yet.
+
+  The lab is newly founded, so several sections are intentionally empty. They
+  stay visible rather than collapsing: a labelled, empty area reads as
+  deliberate, while a hidden one reads as missing.
+
+  Params:
+    message  main line (required)
+    hint     optional second line, smaller
+{%- endcomment -%}
+
+<div class="drxs-empty">
+  <p>{{ include.message }}</p>
+  {%- if include.hint %}
+    <p>{{ include.hint }}</p>
+  {%- endif %}
+</div>

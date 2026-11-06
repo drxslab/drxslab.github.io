@@ -1,0 +1,103 @@
+{%- comment -%}
+  LOCAL OVERRIDE of al_folio_core's _includes/footer.liquid.
+
+  Replaces the gem's single-line copyright footer with a three-column layout
+  (lab identity / quick links / contact) and appends the site-wide recruiting
+  banner, as required by the site plan. Opt a page out of the banner with
+  `recruit_banner: false` in its front matter.
+
+  Depends on `footer_fixed: false` in _config.yml — the gem's `fixed-bottom`
+  variant is a one-line bar that cannot hold this content.
+
+  Re-check against upstream on gem upgrades:
+    bundle exec al-folio upgrade overrides diff _includes/footer.liquid
+{%- endcomment -%}
+{%- assign lab = site.data.lab -%}
+
+<footer class="sticky-bottom mt-5" role="contentinfo">
+  <div class="container">
+    {%- if page.recruit_banner != false %}
+      {% include drxs/recruit_banner.liquid %}
+    {%- endif %}
+
+    <div class="drxs-footer-cols">
+      <div>
+        <h2 class="drxs-footer-col-title">{{ lab.short_name }}</h2>
+        <p class="drxs-footer-lab-name">
+          {{ lab.name_zh }}
+          <span class="drxs-footer-lab-name-en">{{ lab.name_en }}</span>
+        </p>
+        <p class="drxs-footer-address">
+          {{ lab.institute_en }}, {{ lab.university_en -}}
+          <br>
+          {{ lab.contact.address_zh }}
+          {%- if lab.contact.office %}
+            <br>
+            {{ lab.contact.office }}
+          {%- endif %}
+        </p>
+      </div>
+
+      <div>
+        <h2 class="drxs-footer-col-title">Quick links</h2>
+        <ul class="drxs-footer-links">
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/research/' | relative_url }}">Research</a></li>
+          <li><a href="{{ '/team/' | relative_url }}">Team</a></li>
+          <li><a href="{{ '/publications/' | relative_url }}">Publications</a></li>
+          <li><a href="{{ '/news/' | relative_url }}">News</a></li>
+          <li><a href="{{ '/join/' | relative_url }}">Join Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="drxs-footer-col-title">Contact</h2>
+        <p class="drxs-footer-contact">
+          <a href="mailto:{{ lab.contact.email }}">{{ lab.contact.email }}</a><br>
+          <a href="{{ lab.institute_url }}">{{ lab.institute_zh }}</a>
+        </p>
+        <div class="drxs-icon-row">{% social_links %}</div>
+      </div>
+    </div>
+
+    <div class="drxs-footer-bottom">
+      &copy; {{ site.time | date: '%Y' }}
+      {{ lab.short_name }} · {{ lab.university_en }}. {{ site.footer_text }}
+      {%- if site.impressum_path %}
+        <a href="{{ site.impressum_path | relative_url }}">Impressum</a>.
+      {%- endif %}
+      {%- if site.last_updated %}
+        Last updated {{ site.time | date: '%B %d, %Y' }}.
+      {%- endif %}
+    </div>
+  </div>
+</footer>
+
+{%- comment -%}
+  Navbar shrink-on-scroll. The gem ships no such behavior, and this is cheaper
+  than shadowing the much larger _includes/scripts.liquid: the footer is
+  included before it on every page.
+{%- endcomment -%}
+<script>
+  (function () {
+    var navbar = document.getElementById('navbar');
+    if (!navbar) return;
+    var SHRINK_AT = 60; // px of scroll before the navbar condenses
+    var ticking = false;
+    function sync() {
+      navbar.classList.toggle('drxs-navbar-scrolled', window.scrollY > SHRINK_AT);
+      ticking = false;
+    }
+    window.addEventListener(
+      'scroll',
+      function () {
+        if (!ticking) {
+          ticking = true;
+          window.requestAnimationFrame(sync);
+        }
+      },
+      { passive: true }
+    );
+    sync();
+  })();
+</script>

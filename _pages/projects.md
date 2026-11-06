@@ -7,6 +7,9 @@ nav: true
 nav_order: 3
 display_categories: [work, fun]
 horizontal: false
+# al-folio demo page, kept for reference but not rendered.
+# Flip to `published: true` (or delete this key) to bring it back.
+published: false
 ---
 
 <!-- pages/projects.md -->

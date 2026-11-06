@@ -1,0 +1,57 @@
+{%- comment -%}
+  Collaborators and funding wall, from _data/collaborators.yml.
+  Entries render as text when no logo file is given, so the section is usable
+  before logo permissions have been sorted out. Groups with no items are
+  skipped; when every group is empty a single placeholder is shown.
+{%- endcomment -%}
+
+{%- assign total = 0 -%}
+{%- for group in site.data.collaborators -%}
+  {%- assign total = total | plus: group.items.size -%}
+{%- endfor -%}
+
+<section class="drxs-section" id="collaborators">
+  <div class="drxs-section-header">
+    <h2 class="drxs-section-title">
+      Collaborators &amp; Funding
+      <span class="drxs-section-title-zh">合作与赞助方</span>
+    </h2>
+  </div>
+
+  {%- if total > 0 %}
+    {%- for group in site.data.collaborators %}
+      {%- if group.items.size > 0 %}
+        <div class="drxs-collab-group">
+          <h3 class="drxs-collab-group-title">{{ group.title_en }} · {{ group.title_zh }}</h3>
+          <div class="drxs-collab-items">
+            {%- for item in group.items %}
+              {%- if item.url %}
+                <a class="drxs-collab-item" href="{{ item.url }}" title="{{ item.name }}">
+                  {%- if item.logo %}
+                    <img src="{{ item.logo | prepend: '/assets/img/logos/' | relative_url }}" alt="{{ item.name }}" loading="lazy">
+                  {%- else %}
+                    {{ item.name }}
+                  {%- endif %}
+                </a>
+              {%- else %}
+                <span class="drxs-collab-item" title="{{ item.name }}">
+                  {%- if item.logo %}
+                    <img src="{{ item.logo | prepend: '/assets/img/logos/' | relative_url }}" alt="{{ item.name }}" loading="lazy">
+                  {%- else %}
+                    {{ item.name }}
+                  {%- endif %}
+                </span>
+              {%- endif %}
+            {%- endfor %}
+          </div>
+        </div>
+      {%- endif %}
+    {%- endfor %}
+  {%- else %}
+    {%
+      include drxs/empty_state.liquid
+      message="Collaborations and funding will be listed here."
+      hint="We welcome collaboration — see the contact details in the footer."
+    %}
+  {%- endif %}
+</section>

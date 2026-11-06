@@ -1,0 +1,58 @@
+# Lab identity, hero copy, and footer details.
+# This is the single source for the lab's name, slogan, and contact block.
+# Edit here rather than in the templates.
+
+name_zh: 交叉学科智能系统设计与实现实验室
+name_en: Design and Realization of Interdisciplinary Intelligent Systems
+short_name: DrXs Lab
+
+institute_en: Institute of Trustworthy Embodied AI
+institute_zh: 可信具身智能研究院
+institute_url: https://teai.fudan.edu.cn
+university_en: Fudan University
+university_zh: 复旦大学
+
+# One-line research slogan shown under the lab name in the hero.
+slogan_en: Complexity, Safety, Socialization
+slogan_zh: 任务难度，安全交互，社会化融合
+
+# Two or three sentences below the slogan.
+hero_intro: >
+  The lab is led by [Wenqiang Xu](https://wenqiangx.github.io), Assistant
+  Professor at the Institute of Trustworthy Embodied AI, whose research centers
+  on the safety of robot interaction.
+
+
+  We study how robots can work in physical contact with people and objects
+  without putting them at risk — spanning human motion mechanisms, omni-modal
+  perception and high-frequency force control, safe interaction policies, and the
+  design of novel embodiments and sensors.
+
+# Hero call-to-action buttons.
+cta:
+  primary:
+    label_en: Explore our research
+    label_zh: 了解研究方向
+    url: /research/
+  secondary:
+    label_en: Join us
+    label_zh: 加入我们
+    url: /join/
+
+# Right-hand side of the hero. `image` is relative to assets/img/.
+# Replace lab_logo.svg with a real logo or a representative research figure
+# when one is available.
+hero_image: lab_logo.svg
+hero_image_alt: DrXs Lab logo
+
+# Contact / address block, used in the footer and on the Join Us page.
+contact:
+  email: wenqiangxu@fudan.edu.cn
+  address_en: Institute of Trustworthy Embodied AI, Fudan University, Shanghai, China
+  address_zh: 上海市 复旦大学 可信具身智能研究院
+  # Optional: office room, shown in the footer when set.
+  office:
+
+# PI's personal homepage. Linked from Publications and the Team page, since
+# pre-lab publications live there rather than on this site.
+pi_homepage: https://wenqiangx.github.io

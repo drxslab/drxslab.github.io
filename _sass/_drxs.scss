@@ -1,0 +1,1196 @@
+/*******************************************************************************
+ * DrXs Lab custom layout
+ *
+ * Why hand-written CSS instead of utility classes: al_folio_core ships a
+ * PRE-BUILT Tailwind stylesheet (assets/css/tailwind.css) containing a fixed
+ * set of ~309 classes, and the starter is forbidden from adding its own CSS
+ * build step (see AGENTS.md "Stop sign"). Utilities such as `grid-cols-3`,
+ * `gap-3` or `text-4xl` simply do not exist in that build, so the custom
+ * sections below define their own layout here.
+ *
+ * All colors go through the gem's CSS custom properties (declared in
+ * al_folio_core/_sass/_themes.scss) so light/dark mode works automatically:
+ *   --global-bg-color        --global-text-color      --global-text-color-light
+ *   --global-theme-color     --global-divider-color   --global-card-bg-color
+ *   --global-hover-color     --global-hover-text-color
+ ******************************************************************************/
+
+/* -----------------------------------------------------------------------------
+ * Global interaction
+ * -------------------------------------------------------------------------- */
+
+/* Smooth scrolling is not provided by the gem. Offset accounts for the fixed
+   navbar so anchor targets are not hidden underneath it. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Navbar shrinks once the page is scrolled. The `scrolled` class is toggled by
+   the inline script in _includes/footer.liquid. */
+#navbar {
+  transition:
+    padding 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+#navbar.drxs-navbar-scrolled {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  box-shadow: 0 1px 12px rgb(0 0 0 / 8%);
+  opacity: 1;
+
+  .navbar-brand.title {
+    font-size: 1.1rem;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * Shared section scaffolding
+ * -------------------------------------------------------------------------- */
+
+.drxs-section {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.drxs-section-header {
+  margin-bottom: 2rem;
+}
+
+.drxs-section-title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* Chinese counterpart shown next to or under an English heading. */
+.drxs-section-title-zh {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--global-text-color-light);
+}
+
+.drxs-section-lead {
+  max-width: 48rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+  color: var(--global-text-color-light);
+}
+
+/* Placeholder used wherever a section has no content yet. The section stays
+   visible on purpose: the lab is new, and an empty-but-labelled area reads as
+   deliberate while a hidden one reads as missing. */
+.drxs-empty {
+  padding: 2rem 1.5rem;
+  border: 1px dashed var(--global-divider-color);
+  border-radius: 8px;
+  text-align: center;
+  color: var(--global-text-color-light);
+}
+
+.drxs-empty p {
+  margin: 0;
+}
+
+.drxs-empty p + p {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+}
+
+/* -----------------------------------------------------------------------------
+ * Hero (home page first screen)
+ * -------------------------------------------------------------------------- */
+
+.drxs-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 1:1 on desktop, per the design brief */
+  gap: 3rem;
+  align-items: center;
+  padding: 2rem 0 3rem;
+}
+
+.drxs-hero-name-zh {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.drxs-hero-name-en {
+  margin: 0.4rem 0 0;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--global-text-color-light);
+}
+
+.drxs-hero-short-name {
+  color: var(--global-theme-color);
+  font-weight: 500;
+}
+
+.drxs-hero-affiliation {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+  color: var(--global-text-color-light);
+}
+
+.drxs-hero-slogan {
+  margin: 1.5rem 0 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--global-theme-color);
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+.drxs-hero-slogan-zh {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.95rem;
+  color: var(--global-text-color-light);
+}
+
+.drxs-hero-intro {
+  margin: 1.25rem 0 0;
+  color: var(--global-text-color-light);
+}
+
+.drxs-hero-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drxs-hero-media img,
+.drxs-hero-media svg {
+  width: 100%;
+  max-width: 22rem;
+  height: auto;
+}
+
+/* Call-to-action buttons */
+.drxs-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.drxs-btn {
+  display: inline-block;
+  padding: 0.55rem 1.3rem;
+  border: 1px solid var(--global-theme-color);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.drxs-btn-primary {
+  background-color: var(--global-theme-color);
+  color: var(--global-hover-text-color);
+}
+
+.drxs-btn-primary:hover,
+.drxs-btn-primary:focus-visible {
+  background-color: transparent;
+  color: var(--global-theme-color);
+}
+
+.drxs-btn-secondary {
+  background-color: transparent;
+  color: var(--global-theme-color);
+}
+
+.drxs-btn-secondary:hover,
+.drxs-btn-secondary:focus-visible {
+  background-color: var(--global-theme-color);
+  color: var(--global-hover-text-color);
+}
+
+.drxs-btn-zh {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+/* -----------------------------------------------------------------------------
+ * Vision: three parallel tenets
+ * -------------------------------------------------------------------------- */
+
+.drxs-vision {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--global-divider-color);
+}
+
+.drxs-vision-item h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.drxs-vision-item-en {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--global-theme-color);
+}
+
+.drxs-vision-item p {
+  margin: 0.85rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--global-text-color-light);
+}
+
+/* -----------------------------------------------------------------------------
+ * Research direction cards (home page overview)
+ * -------------------------------------------------------------------------- */
+
+.drxs-directions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1.25rem;
+}
+
+.drxs-direction-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.25rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 8px;
+  background-color: var(--global-card-bg-color);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.drxs-direction-card:hover,
+.drxs-direction-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--global-theme-color);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 8%);
+}
+
+.drxs-direction-icon {
+  margin-bottom: 0.85rem;
+  font-size: 1.4rem;
+  color: var(--global-theme-color);
+}
+
+.drxs-direction-card h3 {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.drxs-direction-name-zh {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--global-text-color-light);
+}
+
+.drxs-direction-card p {
+  margin: 0.7rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--global-text-color-light);
+}
+
+/* -----------------------------------------------------------------------------
+ * Featured research grid
+ * -------------------------------------------------------------------------- */
+
+.drxs-featured {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.5rem;
+}
+
+.drxs-featured-item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 8px;
+  background-color: var(--global-card-bg-color);
+  overflow: hidden;
+}
+
+.drxs-featured-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background-color: var(--global-divider-color);
+}
+
+.drxs-featured-body {
+  padding: 1rem 1.1rem 1.15rem;
+}
+
+.drxs-featured-body h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.drxs-featured-venue {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  background-color: var(--global-divider-color);
+  font-size: 0.78rem;
+  color: var(--global-text-color);
+}
+
+.drxs-featured-authors {
+  margin: 0.55rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--global-text-color-light);
+}
+
+.drxs-featured-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+
+.drxs-link-chip {
+  padding: 0.12rem 0.55rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 4px;
+  font-size: 0.78rem;
+  text-decoration: none;
+  color: var(--global-text-color-light);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.drxs-link-chip:hover,
+.drxs-link-chip:focus-visible {
+  color: var(--global-theme-color);
+  border-color: var(--global-theme-color);
+}
+
+/* -----------------------------------------------------------------------------
+ * Collaborators / funding wall
+ * -------------------------------------------------------------------------- */
+
+.drxs-collab-group + .drxs-collab-group {
+  margin-top: 1.75rem;
+}
+
+.drxs-collab-group-title {
+  margin: 0 0 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--global-text-color-light);
+}
+
+.drxs-collab-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Grayscale by default so the wall stays quiet; color on hover. */
+.drxs-collab-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--global-text-color-light);
+  filter: grayscale(100%);
+  opacity: 0.75;
+  transition:
+    filter 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.drxs-collab-item:hover,
+.drxs-collab-item:focus-visible {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.drxs-collab-item img {
+  max-height: 2.1rem;
+  width: auto;
+}
+
+/* -----------------------------------------------------------------------------
+ * Recruiting banner (full-width, site-wide, above the footer)
+ * -------------------------------------------------------------------------- */
+
+.drxs-recruit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3.5rem 0 0;
+  padding: 1.6rem 1.75rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 8px;
+  /* Tinted from the theme color so it works in both light and dark mode. */
+  background-color: color-mix(in srgb, var(--global-theme-color) 7%, var(--global-bg-color));
+}
+
+.drxs-recruit-text {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.drxs-recruit-text-zh {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.88rem;
+  color: var(--global-text-color-light);
+}
+
+/* -----------------------------------------------------------------------------
+ * Research page: per-direction sections
+ * -------------------------------------------------------------------------- */
+
+.drxs-research-block + .drxs-research-block {
+  margin-top: 3.5rem;
+  padding-top: 3.5rem;
+  border-top: 1px solid var(--global-divider-color);
+}
+
+/* Offset anchor targets so the fixed navbar does not cover the heading. */
+.drxs-research-block {
+  scroll-margin-top: 5rem;
+}
+
+.drxs-research-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.drxs-research-title-zh {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--global-text-color-light);
+}
+
+.drxs-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.85rem;
+  padding: 0;
+  list-style: none;
+}
+
+.drxs-tag {
+  padding: 0.1rem 0.55rem;
+  border-radius: 4px;
+  background-color: var(--global-divider-color);
+  font-size: 0.78rem;
+  color: var(--global-text-color-light);
+}
+
+.drxs-research-body {
+  margin-top: 1.25rem;
+}
+
+.drxs-research-body p {
+  line-height: 1.7;
+}
+
+.drxs-subheading {
+  margin: 1.75rem 0 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--global-text-color-light);
+}
+
+/* Compact paper list used on the Research page */
+.drxs-paper-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.drxs-paper-list li {
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--global-divider-color);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.drxs-paper-list li:last-child {
+  border-bottom: none;
+}
+
+.drxs-paper-meta {
+  color: var(--global-text-color-light);
+}
+
+/* Small avatar row for the members leading a direction */
+.drxs-member-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.drxs-member-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.drxs-member-chip .drxs-avatar {
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 0.8rem;
+}
+
+/* -----------------------------------------------------------------------------
+ * Team page
+ * -------------------------------------------------------------------------- */
+
+/* PI block: large avatar on the left, information on the right. */
+.drxs-pi {
+  display: grid;
+  grid-template-columns: 14rem 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Square aspect ratio so the circular crop is a circle rather than an oval:
+   the source photo is portrait (1050x1350). */
+.drxs-pi-photo img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.drxs-pi-name {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.drxs-pi-name-zh {
+  margin-left: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--global-text-color-light);
+}
+
+.drxs-pi-title {
+  margin: 0.35rem 0 0;
+  color: var(--global-text-color-light);
+}
+
+.drxs-pi-bio {
+  margin-top: 1.1rem;
+}
+
+.drxs-pi-bio p {
+  line-height: 1.7;
+}
+
+/* Social / contact icon row */
+.drxs-icon-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 0.9rem;
+  font-size: 1.1rem;
+}
+
+.drxs-icon-row a {
+  color: var(--global-text-color-light);
+  transition: color 0.2s ease;
+}
+
+.drxs-icon-row a:hover,
+.drxs-icon-row a:focus-visible {
+  color: var(--global-theme-color);
+}
+
+.drxs-honors {
+  margin: 1.1rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.92rem;
+  color: var(--global-text-color-light);
+}
+
+/* Member card grid: 4 columns desktop, 2 tablet, 1 mobile. */
+.drxs-member-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.drxs-member-card {
+  padding: 1.25rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background-color: var(--global-bg-color);
+  text-align: center;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+/* Minimal by default, light shadow feedback on hover. */
+.drxs-member-card:hover {
+  border-color: var(--global-divider-color);
+  box-shadow: 0 2px 12px rgb(0 0 0 / 7%);
+}
+
+.drxs-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.5rem;
+  height: 5.5rem;
+  margin: 0 auto 0.85rem;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: color-mix(in srgb, var(--global-theme-color) 12%, var(--global-bg-color));
+  color: var(--global-theme-color);
+  font-size: 1.4rem;
+  font-weight: 500;
+  /* Initials placeholder is centered by the flex rules above; when an <img>
+     uses this class the text properties are simply unused. */
+}
+
+.drxs-member-name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.drxs-member-name-zh {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--global-text-color-light);
+}
+
+.drxs-member-role {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  color: var(--global-text-color-light);
+}
+
+.drxs-member-interests {
+  margin: 0.5rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--global-text-color-light);
+}
+
+/* Alumni: compact list */
+.drxs-alumni-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.drxs-alumni-list li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--global-divider-color);
+  font-size: 0.92rem;
+}
+
+.drxs-alumni-list li:last-child {
+  border-bottom: none;
+}
+
+.drxs-alumni-dest {
+  color: var(--global-text-color-light);
+}
+
+/* "Show more" uses <details>, so it works without JavaScript. */
+.drxs-more > summary {
+  cursor: pointer;
+  margin-top: 0.85rem;
+  font-size: 0.9rem;
+  color: var(--global-theme-color);
+}
+
+/* -----------------------------------------------------------------------------
+ * Join Us page
+ * -------------------------------------------------------------------------- */
+
+.drxs-position + .drxs-position {
+  margin-top: 2rem;
+}
+
+.drxs-position {
+  padding: 1.5rem 1.6rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 8px;
+  background-color: var(--global-card-bg-color);
+  scroll-margin-top: 5rem;
+}
+
+.drxs-position-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.drxs-position-title-zh {
+  margin-left: 0.45rem;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--global-text-color-light);
+}
+
+/* Responsibilities / requirements / benefits sit side by side on wide screens. */
+.drxs-position-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.1rem;
+}
+
+.drxs-position-cols h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--global-text-color-light);
+}
+
+.drxs-position-cols ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Open roles: a single sentence in place of a block per role. */
+.drxs-open-roles {
+  margin-top: 2.5rem;
+}
+
+.drxs-open-roles-line {
+  max-width: 48rem;
+  margin: 1rem 0 0;
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+.drxs-open-roles-zh {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.92rem;
+  color: var(--global-text-color-light);
+}
+
+/* Language tabs for the FAQ */
+.drxs-lang-tabs {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.drxs-lang-tab {
+  padding: 0.3rem 0.95rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 999px;
+  background-color: transparent;
+  font-size: 0.85rem;
+  color: var(--global-text-color-light);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.drxs-lang-tab:hover {
+  border-color: var(--global-theme-color);
+  color: var(--global-theme-color);
+}
+
+.drxs-lang-tab[aria-selected="true"] {
+  background-color: var(--global-theme-color);
+  border-color: var(--global-theme-color);
+  color: var(--global-hover-text-color);
+}
+
+.drxs-apply-box {
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid var(--global-theme-color);
+  border-radius: 4px;
+  background-color: color-mix(in srgb, var(--global-theme-color) 6%, var(--global-bg-color));
+}
+
+.drxs-apply-box code {
+  font-size: 0.88rem;
+}
+
+/* FAQ uses native <details> for keyboard accessibility and no-JS support. */
+.drxs-faq-item {
+  border-bottom: 1px solid var(--global-divider-color);
+}
+
+.drxs-faq-item > summary {
+  padding: 0.85rem 0;
+  cursor: pointer;
+  font-weight: 500;
+  list-style: none;
+}
+
+.drxs-faq-item > summary::-webkit-details-marker {
+  display: none;
+}
+
+.drxs-faq-item > summary::before {
+  content: "+";
+  display: inline-block;
+  width: 1.1rem;
+  color: var(--global-theme-color);
+}
+
+.drxs-faq-item[open] > summary::before {
+  content: "\2212"; /* minus sign */
+}
+
+.drxs-faq-item > div {
+  padding: 0 0 1rem 1.1rem;
+  font-size: 0.93rem;
+  line-height: 1.65;
+  color: var(--global-text-color-light);
+}
+
+/* -----------------------------------------------------------------------------
+ * News page
+ * -------------------------------------------------------------------------- */
+
+.drxs-news-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.drxs-filter-btn {
+  padding: 0.3rem 0.85rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 999px;
+  background-color: transparent;
+  font-size: 0.85rem;
+  color: var(--global-text-color-light);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.drxs-filter-btn:hover {
+  border-color: var(--global-theme-color);
+  color: var(--global-theme-color);
+}
+
+.drxs-filter-btn[aria-pressed="true"] {
+  background-color: var(--global-theme-color);
+  border-color: var(--global-theme-color);
+  color: var(--global-hover-text-color);
+}
+
+.drxs-news-item {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1.25rem;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+
+/* Items with a cover image get a third column. */
+.drxs-news-item.has-cover {
+  grid-template-columns: 7rem 1fr 12rem;
+}
+
+.drxs-news-item[hidden] {
+  display: none;
+}
+
+.drxs-news-date {
+  font-size: 0.85rem;
+  color: var(--global-text-color-light);
+}
+
+.drxs-news-category {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--global-theme-color);
+}
+
+.drxs-news-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.drxs-news-excerpt {
+  margin: 0.45rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--global-text-color-light);
+}
+
+.drxs-news-more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+}
+
+.drxs-news-cover img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* -----------------------------------------------------------------------------
+ * Footer (three columns)
+ *
+ * The gem's footer styles target `footer.sticky-bottom`; these rules live inside
+ * that element and inherit its colors.
+ * -------------------------------------------------------------------------- */
+
+.drxs-footer-cols {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 2rem;
+  padding: 2.5rem 0 1.5rem;
+}
+
+.drxs-footer-col-title {
+  margin: 0 0 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+.drxs-footer-lab-name {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.drxs-footer-lab-name-en {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.drxs-footer-address {
+  margin: 0.6rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  opacity: 0.75;
+}
+
+.drxs-footer-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.88rem;
+  line-height: 1.9;
+}
+
+.drxs-footer-contact {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+/* The gem centers all footer text (`footer.sticky-bottom .container`), but
+   .drxs-icon-row is a flex container, so it ignores text-align and sits left.
+   Center it explicitly to line up with the column above it. */
+.drxs-footer-cols .drxs-icon-row {
+  justify-content: center;
+}
+
+.drxs-footer-bottom {
+  padding: 1rem 0 0;
+  border-top: 1px solid rgb(128 128 128 / 25%);
+  font-size: 0.82rem;
+  opacity: 0.7;
+}
+
+/* -----------------------------------------------------------------------------
+ * Responsive: tablet
+ * -------------------------------------------------------------------------- */
+
+@media (max-width: 991.98px) {
+  .drxs-vision {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .drxs-member-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .drxs-position-cols {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .drxs-pi {
+    grid-template-columns: 11rem 1fr;
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  /* Hero stacks vertically, with the figure above the text. */
+  .drxs-hero {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    padding-top: 1rem;
+  }
+
+  .drxs-hero-media {
+    order: -1;
+  }
+
+  .drxs-hero-media img,
+  .drxs-hero-media svg {
+    max-width: 14rem;
+  }
+
+  .drxs-hero-name-zh {
+    font-size: 1.45rem;
+  }
+
+  .drxs-footer-cols {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .drxs-news-item,
+  .drxs-news-item.has-cover {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .drxs-news-cover {
+    max-width: 16rem;
+  }
+
+  .drxs-recruit {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * Responsive: mobile
+ * -------------------------------------------------------------------------- */
+
+@media (max-width: 575.98px) {
+  .drxs-member-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* PI block stacks; avatar is capped so it does not dominate the screen. */
+  .drxs-pi {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .drxs-pi-photo {
+    max-width: 11rem;
+  }
+
+  .drxs-section {
+    margin-top: 2.75rem;
+    margin-bottom: 2.75rem;
+  }
+
+  .drxs-cta .drxs-btn {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .drxs-position,
+  .drxs-recruit {
+    padding: 1.25rem 1.1rem;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * Print
+ * -------------------------------------------------------------------------- */
+
+@media print {
+  .drxs-recruit,
+  .drxs-news-filters {
+    display: none;
+  }
+}

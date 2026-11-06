@@ -1,0 +1,29 @@
+# The lab's three research tenets, shown as a three-column section on the home
+# page. Each entry: a Chinese keyword title, its English counterpart, and an
+# explanation of 100 characters or fewer.
+#
+# NOTE: this is a first draft derived from the lab's own name (Design and
+# Realization of interdisciplinary intelligent Systems) and the PI's stated
+# research focus. Please rewrite in your own voice — this section is what gives
+# the lab its academic identity, so it is worth getting exactly right.
+
+- title_zh: 安全优先
+  title_en: Safety First
+  body: >
+    Contact is not a failure mode to be avoided but a capability to be modeled,
+    predicted, and actively controlled. We treat safety as a design objective
+    from the first sketch, not a constraint bolted on at deployment.
+
+- title_zh: 交叉融合
+  title_en: Interdisciplinary by Design
+  body: >
+    Safe physical interaction will not come from any single field. We work where
+    biomechanics, tactile sensing, control theory, and learning meet — because
+    the hard problems sit precisely in the gaps between them.
+
+- title_zh: 从设计到实现
+  title_en: From Design to Realization
+  body: >
+    A result that only holds in simulation has not been shown to hold. We build
+    the hardware, the sensors, and the systems, and we validate on real robots
+    in real contact with the real world.

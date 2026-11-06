@@ -1,0 +1,153 @@
+# Recruiting content for /join/ and the site-wide recruiting banner.
+#
+# Please review the specifics before going live: stipends, deadlines, and
+# eligibility are placeholders written to be safe rather than precise, and they
+# are the details applicants will hold you to.
+
+# Short line used by the banner at the bottom of every page.
+banner:
+  text_en: We are recruiting postdocs, PhD and master's students, research assistants, and visiting scholars.
+  text_zh: 我们正在招收博士后、博士生、研究助理与访问学者
+  cta_en: See open positions
+  cta_zh: 查看招聘详情
+
+# Page-header blurb for /join/.
+intro: >
+  The lab is newly founded, which means early members shape its direction rather
+  than inherit it. You would work on problems in robot interaction safety that
+  are genuinely open, with the hardware and the freedom to pursue them. We care
+  more about how you think than about what you have already published.
+
+# Positions, in fixed display order.
+# Roles currently open. Rendered as a single line on /join/ rather than a
+# section per role: applicants mostly need to know whether their role is open
+# and how to apply, and the per-role detail is better discussed over email.
+open_roles_en: postdoctoral researchers, PhD students, master's students, undergraduate researchers, research assistants, and visiting scholars
+open_roles_zh: 博士后、博士研究生、硕士研究生、本科生、研究助理与访问学者
+
+# Application materials, bilingual. /join/ renders these as two tabs with
+# Chinese shown by default. Keep the two lists in the same order so a reader
+# switching tabs stays on the same item.
+materials_zh:
+  - 个人简历，含论文发表与相关课程。
+  - >
+    一段简短说明：你想做什么方向，以及为什么。
+    写清楚想法即可，不必追求篇幅。
+    关于研究理解的部分，建议用你自己的话写 ——
+    AI 生成的文字其实一眼就能看出来。
+  - >
+    总成绩（GPA）与专业排名情况，不需要成绩单原件。
+    我本人不依据这一条筛选人，
+    主要是用于评估能否通过学校划定的标准线。
+  - >
+    如果申请研究助理（实习），
+    请在邮件中注明实习的起止时间。
+  - >
+    如果你是本科生或实习生，
+    请说明每周能在实验室投入的时间（小时）。
+  - "可选：代码、项目，或任何你做过的东西的链接。"
+
+materials_en:
+  - Curriculum vitae, including publications and relevant coursework.
+  - >
+    A short statement of what you want to work on and why.
+    Being clear matters more than being long.
+    On the research side, please write it in your own words —
+    text that reads as AI-generated is easy to spot.
+  - >
+    Your overall GPA and class ranking; no official transcript needed.
+    I do not screen on this myself. It is there to check
+    whether you would clear the university's own threshold.
+  - >
+    If you are applying as a research assistant (intern),
+    state the start and end dates of the internship in your email.
+  - >
+    If you are an undergraduate or an intern,
+    state how many hours per week you can spend in the lab.
+  - "Optional: links to code, projects, or anything you have built."
+
+# How to apply. `notes` is bilingual and rendered in the same tabs as the
+# materials list above.
+how_to_apply:
+  email: wenqiangxu@fudan.edu.cn
+  # Square brackets, not angle brackets: an "<Angle>" placeholder is parsed
+  # as an HTML tag when rendered, which swallows the surrounding markup.
+  subject_format: "[Application] [Position] - [Your Name] - [Your Institution]"
+  notes_zh:
+    - 简历请以单个 PDF 附件发送，不要用网盘链接。
+    - 请说明四个研究方向中你对哪一个感兴趣，以及为什么。
+    - 招生常年开放，没有固定截止时间。
+    - 我们通常会在 5 个工作日内回复。
+  notes_en:
+    - Attach your CV as a single PDF rather than linking to cloud storage.
+    - Mention which of the four research directions interests you, and why.
+    - Applications are reviewed on a rolling basis; there is no fixed deadline.
+    - We normally reply within five working days....[truncated 24 chars]...[truncated 24 chars]
+# Frequently asked questions, bilingual.
+#
+# Each entry has a Chinese and an English version; /join/ renders them as two
+# tabs with Chinese shown by default. Keep the two lists in the same order so a
+# reader switching tabs stays on the same question.
+faq_zh:
+  - q: 我本科/硕士就读于其他院校，可以投递简历吗？
+    a: >
+      可以。硕士与博士的招生都要经过学校的既定流程进行初筛，在双方彼此认可、且你能通过
+      学校划定的标准线的前提下，我们欢迎任何院校的同学投递。
+  - q: 我还没有相关方向的一作论文，可以申请吗？
+    a: >
+      可以。做事的态度、对问题的灵性，以及扎实的基础，在我们看来同样重要 ——
+      某种程度上，可能比论文更重要。
+  - q: 来实习的同学有房租补贴吗？
+    a: 有。
+  - q: 需要有机器人背景才能申请吗？
+    a: >
+      不需要。实验室处在生物力学、传感、控制与学习的交叉处，这几个方向的背景都用得上。
+      更重要的是你能写代码、思考严谨，并且愿意和真实硬件打交道。
+  - q: 博士生什么时候招生？
+    a: >
+      博士招生统一走复旦大学的招生流程，有其固定的时间节点与材料要求。建议在正式申请前
+      先与 PI 联系 —— 提前聊过，我们能帮上的会多很多。
+  - q: 可以远程实习或访问吗？
+    a: >
+      我们大部分工作需要接触真实机器人，因此远程的空间有限。偏计算的课题有时可以远程推进，
+      具体可以来问。
+  - q: 实验室是新建的，这对我来说是风险吗？
+    a: >
+      这确实是一个需要如实权衡的取舍。你会得到更多 PI 的时间、对研究方向更大的话语权，
+      以及对课题真正的主导权；同时也要面对尚在搭建中的基础设施，和更少的高年级同学可供
+      请教。早期成员塑造实验室的样子。
+
+faq_en:
+  - q: I did my bachelor's or master's elsewhere — can I still apply?
+    a: >
+      Yes. Master's and PhD admissions both run through the university's
+      established screening process. As long as there is mutual interest and you
+      can clear the university's bar, we welcome applications from any
+      institution.
+  - q: I don't have a first-author paper in this area yet. Can I apply?
+    a: >
+      Yes. Your attitude toward the work, your instinct for problems, and a solid
+      foundation matter just as much to us — arguably more than publications.
+  - q: Is there a housing subsidy for interns?
+    a: Yes.
+  - q: Do I need a robotics background to apply?
+    a: >
+      No. The lab sits between biomechanics, sensing, control, and learning, and
+      useful backgrounds come from all of them. What matters is that you can
+      program, reason carefully, and are willing to work with real hardware.
+  - q: When are PhD students admitted?
+    a: >
+      PhD admission runs through Fudan University's central process, which has
+      its own timeline and requirements. Write to the PI before applying — it is
+      much easier to help if we have talked first.
+  - q: Can I visit or intern remotely?
+    a: >
+      Most of our work involves physical robots, so remote arrangements are
+      limited. Projects that are primarily computational can sometimes be done
+      remotely; ask.
+  - q: The lab is new. Is that a risk for me?
+    a: >
+      It is a real trade-off, and worth being honest about. You get more of the
+      PI's time, more say in what gets worked on, and more ownership of
+      directions. You also get less established infrastructure and fewer senior
+      students to learn from. Early members shape the lab.

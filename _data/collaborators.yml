@@ -1,0 +1,26 @@
+# Collaborators and funding sources, shown as a grayscale wall on the home page.
+#
+# Grouped so universities, institutes, industry partners, and grants can be
+# labelled separately. A group with an empty `items` list is skipped; when every
+# group is empty the whole section renders a short placeholder instead.
+#
+# Item fields:
+#   name   required; displayed as text when no logo is given
+#   url    optional; makes the entry a link
+#   logo   optional; file in assets/img/logos/. Text is used when absent, which
+#          keeps this section usable without chasing down logo permissions.
+
+- id: institutions
+  title_en: Universities & Institutes
+  title_zh: 高校与科研机构
+  items: []
+
+- id: industry
+  title_en: Industry Partners
+  title_zh: 企业合作方
+  items: []
+
+- id: funding
+  title_en: Funding
+  title_zh: 基金项目
+  items: []

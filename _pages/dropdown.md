@@ -10,4 +10,7 @@ children:
   - title: divider
   - title: blog
     permalink: /blog/
+# al-folio demo page, kept for reference but not rendered.
+# Flip to `published: true` (or delete this key) to bring it back.
+published: false
 ---

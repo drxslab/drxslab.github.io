@@ -1,0 +1,18 @@
+{%- comment -%}
+  Site-wide recruiting banner, included from _includes/footer.liquid so every
+  page closes with it. Opt out per page with `recruit_banner: false` in front
+  matter (the Join Us page does this, since the banner would point at itself).
+  Copy comes from _data/join.yml.
+{%- endcomment -%}
+{%- assign banner = site.data.join.banner -%}
+
+<section class="drxs-recruit">
+  <p class="drxs-recruit-text">
+    {{ banner.text_en }}
+    <span class="drxs-recruit-text-zh">{{ banner.text_zh }}</span>
+  </p>
+  <a class="drxs-btn drxs-btn-primary" href="{{ '/join/' | relative_url }}">
+    {{ banner.cta_en }}
+    <span class="drxs-btn-zh">{{ banner.cta_zh }}</span>
+  </a>
+</section>

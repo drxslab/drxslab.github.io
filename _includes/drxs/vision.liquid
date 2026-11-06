@@ -1,0 +1,27 @@
+{%- comment -%}
+  Research vision: three parallel tenets from _data/vision.yml.
+  Each is a Chinese keyword, its English counterpart, and a short explanation.
+  This section carries the lab's academic identity, so it sits directly below
+  the hero rather than after the research directions.
+{%- endcomment -%}
+
+<section class="drxs-section" id="vision">
+  <div class="drxs-section-header">
+    <h2 class="drxs-section-title">
+      Research Vision
+      <span class="drxs-section-title-zh">研究愿景与核心理念</span>
+    </h2>
+  </div>
+
+  <div class="drxs-vision">
+    {%- for item in site.data.vision %}
+      <div class="drxs-vision-item">
+        <h3>
+          {{ item.title_zh }}
+          <span class="drxs-vision-item-en">{{ item.title_en }}</span>
+        </h3>
+        <p>{{ item.body }}</p>
+      </div>
+    {%- endfor %}
+  </div>
+</section>

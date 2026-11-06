@@ -1,0 +1,98 @@
+# Research directions. SINGLE SOURCE for two places:
+#   - home page: the direction overview cards (uses id, name_*, tagline, icon)
+#   - /research/: the full per-direction sections (uses everything below)
+#
+# Fields
+#   id          anchor slug; the home card links to /research/#<id>
+#   name_en     direction title
+#   name_zh     Chinese counterpart, shown under the title
+#   tagline     max two lines, used on the home page card
+#   icon        Font Awesome 7 class (shipped via al_icons)
+#   tags        short keyword chips
+#   background  list of paragraphs: research background and the scientific question
+#   papers      representative papers; empty for now. Each: title, venue, year, url
+#   members     names matching `name_en` in _data/team.yml; renders their avatars
+#   resources   optional open-source / dataset links. Each: label, url, note
+
+- id: human-motion
+  name_en: Human Motion Mechanisms
+  name_zh: 人体运动机理
+  tagline: Musculoskeletal modeling and biomechanically grounded motion understanding.
+  icon: fa-solid fa-person-running
+  tags: [musculoskeletal modeling, biomechanics, motion capture]
+  background:
+    - >
+      Robots that work in contact with people need a model of what a human body
+      can and cannot tolerate. Skin-level kinematics are not enough: the same
+      external motion can correspond to very different internal loads depending
+      on posture, muscle activation, and joint state.
+    - >
+      We build biomechanically grounded models of human motion — musculoskeletal
+      structure, not just skeletal keypoints — so that an interaction can be
+      evaluated against what is actually happening inside the body. The open
+      question we care about is how to recover these internal quantities from
+      the sparse, noisy signals available outside a laboratory.
+  papers: []
+  members: []
+  resources: []
+
+- id: omni-modal-perception
+  name_en: Omni-modal Perception & Force Control
+  name_zh: 全模态感知与高频力控
+  tagline: Fusing vision, touch, force, and proprioception into one picture of contact.
+  icon: fa-solid fa-hand-sparkles
+  tags: [tactile sensing, force control, sensor fusion, high-frequency control]
+  background:
+    - >
+      Contact is where a robot's senses disagree most. Vision is occluded exactly
+      when touch becomes informative; force readings are fast but local;
+      proprioception drifts. Each modality is partial, and they run at
+      wildly different rates.
+    - >
+      We work on fusing vision, touch, force, and proprioception into a single
+      coherent estimate of contact state, and on closing control loops over it
+      fast enough to matter — contact events unfold in milliseconds, which puts
+      hard real-time requirements on both the perception and the control stack.
+  papers: []
+  members: []
+  resources: []
+
+- id: safe-interaction-policy
+  name_en: Safe Interaction Policy
+  name_zh: 安全交互策略
+  tagline: Policies for navigation, locomotion, and manipulation that stay safe under contact.
+  icon: fa-solid fa-shield-halved
+  tags: [manipulation, locomotion, navigation, policy learning]
+  background:
+    - >
+      A policy that is safe in expectation is not the same as a policy that is
+      safe. Rare contact events dominate the risk, and they are precisely the
+      events least represented in training data.
+    - >
+      We study how to learn and verify interaction policies — across navigation,
+      locomotion, and manipulation — whose safety properties hold under physical
+      contact rather than only in free space, and that degrade gracefully when
+      the world falls outside what they were trained on.
+  papers: []
+  members: []
+  resources: []
+
+- id: embodiments-and-sensors
+  name_en: Novel Embodiments & Sensors
+  name_zh: 新型本体与传感器
+  tagline: Making safe physical interaction a property of the hardware itself.
+  icon: fa-solid fa-microchip
+  tags: [sensor design, compliant mechanisms, hardware, dexterous hands]
+  background:
+    - >
+      Some safety properties are cheaper to build into a body than to compute
+      at runtime. Compliance, intrinsic force sensing, and a well-chosen
+      morphology can rule out entire failure modes before any controller runs.
+    - >
+      We design novel embodiments and sensors so that safe physical interaction
+      becomes a property of the hardware, reducing how much the software has to
+      guarantee on its own. This closes the loop with the other three
+      directions: better bodies make perception and control tractable.
+  papers: []
+  members: []
+  resources: []

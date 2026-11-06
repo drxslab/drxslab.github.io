@@ -2,26 +2,29 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: blank # the website title (if blank, full name will be used instead)
-first_name: You
-middle_name: R.
-last_name: Name
+title: DrXs Lab # the website title (if blank, full name will be used instead)
+first_name: Wenqiang
+middle_name:
+last_name: Xu
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Email is the most reliable way to reach us. Prospective students: please read the
+  <a href="/join/">Join Us</a> page before writing.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+  DrXs Lab (交叉学科智能系统设计与实现实验室) at the Institute of Trustworthy Embodied AI,
+  Fudan University. We work on the safety of robot interaction: how robots can work in
+  physical contact with people and objects without putting them at risk.
 footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
-keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
+keywords: DrXs Lab, Fudan University, Trustworthy Embodied AI, robot safety, human-robot interaction, tactile sensing, force control, dexterous manipulation, musculoskeletal modeling, Wenqiang Xu, 徐文强, 复旦大学, 具身智能
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+icon: lab_logo.svg # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 apple_touch_icon: # image name in /assets/img/ (or a rooted path / absolute URL) used for iOS home-screen bookmarks; needs a real 180x180 PNG, since Safari ignores the emoji favicon above. Left empty, iOS falls back to a screenshot of the page.
 
-url: https://alshedivat.github.io # the base hostname & protocol for your site
-baseurl: /al-folio # the subpath of your site, e.g. /blog/. Leave blank for root
-last_updated: false # set to true if you want to display last updated in the footer
+url: https://drxslab.github.io # the base hostname & protocol for your site
+# This is an organization site (repo name == owner name), so `baseurl` must stay
+# EMPTY but present. Do not delete the key, and do not pass --baseurl on build:
+# a non-empty baseurl here breaks every asset and internal link.
+baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
+last_updated: true # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
 
@@ -96,14 +99,18 @@ al_folio:
 # -----------------------------------------------------------------------------
 
 navbar_fixed: true
-footer_fixed: true
+# Must stay false: when true, the footer renders as a one-line `fixed-bottom`
+# copyright bar, which cannot hold the three-column footer and recruiting banner.
+footer_fixed: false
 search_enabled: true
 socials_in_search: true
 posts_in_search: true
 bib_search: true
 
 # Dimensions
-max_width: 930px
+# Wider than the 930px default: the home page's two-column hero and the
+# four-up research and team grids are cramped at that width.
+max_width: 1080px
 
 # -----------------------------------------------------------------------------
 # Open Graph & Schema.org
@@ -136,8 +143,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: al-folio # blog_name will be displayed in your blog page
-blog_description: a simple whitespace theme for academics
+blog_name: DrXs Lab Blog # blog_name will be displayed in your blog page
+blog_description: notes from the lab
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
@@ -174,16 +181,6 @@ disqus_shortname: al-folio # put your disqus shortname
 # you can display them in your blog by adding a link to the RSS feed.
 # Optional: Set default categories and tags for posts from each source.
 external_sources:
-  - name: medium.com
-    rss_url: https://medium.com/@al-folio/feed
-    categories: [external-posts]
-    tags: [medium]
-  - name: Google Blog
-    posts:
-      - url: https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/
-        published_date: 2024-05-14
-    categories: [external-posts]
-    tags: [google]
 
 # -----------------------------------------------------------------------------
 # Newsletter
@@ -251,6 +248,18 @@ exclude:
   - gems/
   - migrations/
   - vendor
+  # --- al-folio demo content, kept on disk but not rendered -------------------
+  # These are the upstream template's example files. They are excluded rather
+  # than deleted so the wiring stays available for reference: drop the matching
+  # line here to bring a collection back. The demo *pages* under _pages/ are
+  # switched off with `published: false` in their own front matter instead.
+  - _posts/
+  - _books/
+  - _teachings/
+  - _projects/
+  - _news/announcement_1.md
+  - _news/announcement_2.md
+  - _news/announcement_3.md
 keep_files:
   - CNAME
   - .nojekyll
@@ -348,16 +357,16 @@ jekyll-archives:
   books:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
 
-display_tags: ["formatting", "images", "links", "math", "code", "blockquotes"] # these tags will be displayed on the front page of your blog
-display_categories: ["external-services"] # these categories will be displayed on the front page of your blog
+display_tags: [] # these tags will be displayed on the front page of your blog
+display_categories: [] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Xu]
+  first_name: [Wenqiang, W.]
 
   style: apa
   locale: en

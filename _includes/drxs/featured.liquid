@@ -1,0 +1,59 @@
+{%- comment -%}
+  Featured research grid for the home page, from _data/featured.yml.
+  Falls back to a placeholder while the list is empty, since the lab's own
+  publications are still in flight and pre-lab work lives on the PI's homepage.
+{%- endcomment -%}
+{%- assign featured = site.data.featured -%}
+
+<section class="drxs-section" id="featured">
+  <div class="drxs-section-header">
+    <h2 class="drxs-section-title">
+      Featured Research
+      <span class="drxs-section-title-zh">代表性成果</span>
+    </h2>
+  </div>
+
+  {%- if featured and featured.size > 0 %}
+    <div class="drxs-featured">
+      {%- for item in featured %}
+        <article class="drxs-featured-item">
+          {%- if item.image %}
+            {%- comment -%}
+              Path must be relative to the site root, since figure.liquid derives
+              the imagemagick webp srcset from this exact string.
+            {%- endcomment -%}
+            {%- assign thumb_path = item.image | prepend: 'assets/img/publication_preview/' -%}
+            {%
+              include figure.liquid
+              path=thumb_path
+              class="drxs-featured-thumb"
+              alt=item.title
+            %}
+          {%- endif %}
+          <div class="drxs-featured-body">
+            <h3>{{ item.title }}</h3>
+            {%- if item.venue %}
+              <span class="drxs-featured-venue">{{ item.venue }}</span>
+            {%- endif %}
+            {%- if item.authors %}
+              <p class="drxs-featured-authors">{{ item.authors | markdownify | remove: '<p>' | remove: '</p>' }}</p>
+            {%- endif %}
+            {%- if item.links %}
+              <div class="drxs-featured-links">
+                {%- for link in item.links %}
+                  <a class="drxs-link-chip" href="{{ link[1] }}">{{ link[0] | upcase }}</a>
+                {%- endfor %}
+              </div>
+            {%- endif %}
+          </div>
+        </article>
+      {%- endfor %}
+    </div>
+  {%- else %}
+    {%
+      include drxs/empty_state.liquid
+      message="The lab's first results are on their way."
+      hint="Work published before the lab was founded is listed on the PI's homepage."
+    %}
+  {%- endif %}
+</section>
